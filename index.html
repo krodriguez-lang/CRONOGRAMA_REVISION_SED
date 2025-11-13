@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Línea del Tiempo - Informes SED</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px 10px;
+            min-height: 100vh;
+            overflow-x: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 40px;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .timeline-wrapper {
+            position: relative;
+            padding: 50px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: translateY(-50%);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .timeline-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .timeline-item {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: column-reverse;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            }
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            max-width: 180px;
+            text-align: center;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .timeline-date {
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            display: inline-block;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        .timeline-description {
+            color: #4b5563;
+            line-height: 1.4;
+            font-size: 0.85em;
+        }
+
+        .connector {
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(180deg, transparent, #cbd5e1, transparent);
+            position: relative;
+        }
+
+        /* Adjustments for compact view */
+        @media (max-width: 768px) {
+            .timeline-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline-item {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📅 Línea del Tiempo - Informes SED</h1>
+        
+        <div class="timeline-wrapper">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">19 de Septiembre</div>
+                        <div class="timeline-description">
+                            En Oficina Central se crean las carpetas y subcarpetas correspondientes a la estructura de Informes SED y se habilitan los permisos de "Gestores de contenido" y "Colaboradores" en la Unidad Compartida de Drive para los 11 colegios de AE.
+                        </div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="connector"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">20 de Octubre</div>
+                        <div class="timeline-description">
+                            Junto al equipo de Oficina Central se diseñó un cronograma de revisión por colegios, el cual fue compartido a los correos de todos los equipos administrativos; adicionalmente se programó por el calendario de Google.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">23 de Octubre</div>
+                        <div class="timeline-description">
+                            Fecha de entrega del tercer corte de Informes SED.
+                        </div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="connector"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">24 Oct - 06 Nov</div>
+                        <div class="timeline-description">
+                            Se desarrolla el proceso de revisión de los informes correspondientes a los colegios de AE, por parte del equipo de Oficina Central, de acuerdo con el cronograma establecido.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">04 - 07 de Noviembre</div>
+                        <div class="timeline-description">
+                            Se realiza el cargue de los informes correspondientes a SST, Mantenimiento, Inventarios, Servicios públicos, Formación docente y Copa Alianza.
+                        </div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="connector"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">06 de Noviembre</div>
+                        <div class="timeline-description">
+                            Se finaliza la revisión de los informes de los colegios, verificando que las novedades reportadas hayan sido subsanadas conforme a la validación realizada con el instrumento de control.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">10 de Noviembre</div>
+                        <div class="timeline-description">
+                            Se realiza el cargue de los informes correspondientes a UTG en la plataforma OneDrive de la SED.
+                        </div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="connector"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">12 de Noviembre</div>
+                        <div class="timeline-description">
+                            Se realiza el cargue de los informes correspondientes a UTA en la plataforma OneDrive de la SED.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">14 de Noviembre</div>
+                        <div class="timeline-description">
+                            Fecha límite para el cargue de los informes en la plataforma de la SED.
+                        </div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
